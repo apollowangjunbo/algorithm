@@ -8,6 +8,14 @@ class myQueue
 {
 public:
 	myQueue(size_t size) :array(size, {}), nSize(size){}
+	T peek()
+	{
+		if (nSize==0)
+		{
+			std::runtime_error("越界");
+		}
+		return array[start];
+	}
 	void add(T obj)
 	{
 		if (nSize == array.size())
@@ -15,7 +23,7 @@ public:
 			std::runtime_error("越界");
 		}
 		array[end] = obj;
-		end = end == array.size() ? 0 : end + 1;
+		end = end == array.size()-1 ? 0 : end + 1;
 		nSize++;
 	}
 	T pop()
@@ -24,8 +32,9 @@ public:
 		{
 			std::runtime_error("越界");
 		}
+		nSize--;
 		auto res = array[start];
-		start = start == array.size() ? 0 : start + 1;
+		start = start == array.size() - 1 ? 0 : start + 1;
 		return res;
 	}
 private:
