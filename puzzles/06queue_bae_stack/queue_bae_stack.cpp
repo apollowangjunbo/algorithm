@@ -42,7 +42,8 @@ private:
 	std::stack<T> data;
 	std::stack<T> help;
 };
-
+#include <vector>
+#include <algorithm>
 int main()
 {
 	cout << "myQueue" << endl;
@@ -54,8 +55,6 @@ int main()
 	cout << queue.pop() << endl;
 	cout << queue.pop() << endl;
 	cout << queue.pop() << endl;
-
-	//cout << stack.array.size();
 
 	cin.get();
 	return 0;
